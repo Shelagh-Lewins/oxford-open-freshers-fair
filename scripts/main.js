@@ -3,22 +3,31 @@
 /* eslint-env jquery */
 
 $('document').ready(() => {
-	const lightbox = document.getElementById("lightbox");
-	const popup = document.getElementById("popup");
-	const cover = document.getElementById("cover");
-	const categoriesList = document.getElementById("categoriesList");
-	const categoriesWrapper = document.getElementById("categoriesWrapper");
+	const lightbox = document.getElementById('lightbox');
+	const popup = document.getElementById('popup');
+	const cover = document.getElementById('cover');
+	const categoriesList = document.getElementById('categoriesList');
+	const categoriesWrapper = document.getElementById('categoriesWrapper');
 
 	function hideLightbox() {
-		lightbox.classList.remove("showLightbox");
+		lightbox.classList.remove('showLightbox');
 	}
 
-	cover.addEventListener("mousedown", function() {
+	$(cover).on('click', () => {
 		hideLightbox();
 	});
-	exit.addEventListener("mousedown", function() {
+	/* $('.exit').on('click', () => {
+		console.log('exit');
 		hideLightbox();
-	});
+	}); */
+
+	/* cover.addEventListener('mousedown', function() {
+		hideLightbox();
+	}); */
+	/*exit.addEventListener('mousedown', function() {
+		console.log('exit');
+		hideLightbox();
+	}); */
 
 	const tiles = [];
 
@@ -45,15 +54,14 @@ $('document').ready(() => {
 	const categories = shuffle(unshuffledCategories);
 
 	function showPopup(id) {
-		console.log('showPopup, id', id);
 		// Split society description into first sentence (to be put in bold) and rest.
 		let socDescLead = data[id]["Society description"].substring(0, data[id]["Society description"].indexOf('.') + 1);
 		let socDescRest = data[id]["Society description"].replace(socDescLead, "");
 
 		/*image if desired:         <img src="${data[id]["Society logo image"]}" />*/
-		let popupText1 = `<div class="exit" onclick="hideLightbox()">X</div>
+		const popupText1 = `<div class="exit">X</div>
 					<h2 class="subtitle">${data[id]["Society name"]}</h2>`;
-		let popupText2 = `<p class="text"><b>${socDescLead}</b>${socDescRest}</p>
+		const popupText2 = `<p class="text"><b>${socDescLead}</b>${socDescRest}</p>
 					<p class="text"><b>Frequently Asked Questions</b><br />${data[id]["FAQs"]}</p>`;
 		let social1 = `<div id="social" style="flex: 100%; padding: 10px;"><a href=${data[id]["Society Facebook page address"]} target="_blank"><img class="socImg" src="img/social/facebook.png" alt="Facebook link"></a></div>`;
 		let social2 = `<div id="social"><a href=${data[id]["Society Instagram profile address"]} target="_blank"><img class="socImg" src="img/social/instagram.png" alt="Instagram link"></a></div>`;
@@ -75,17 +83,21 @@ $('document').ready(() => {
 				<div class="socLink"><a href=${data[id]["Society Instagram profile address"]} target="_blank"><img class="socImg" src="img/social/instagram.png" alt="Instagram link"></a></div>
 				<div class="socLink"><a href=${data[id]["Society YouTube channel address"]} target="_blank"><img class="socImg" src="img/social/youtube.png" alt="YouTube channel link"></a></div>
 				</div>`;
-	if (data[id]["Intro video YouTube link"] != "") {
-	var popupText = popupText1 + `<iframe class="YTVid" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"  type="text/html" src=${data[id]["Intro video YouTube link"]}></iframe>` + popupText2;
-	} else {
-	var popupText = popupText1 + `<img class="popupGraphic" src="${data[id]["Society logo image"]}">` + popupText2;
-	}
 
-	if (data[id]["Teams call address"] === "") {
-	var teamsLink = "";
-	} else {
-	var teamsLink = `<a href="${data[id]["Teams call address"]}" target="_blank"><center><h2>Join Teams Call</h2></center></a>`;
-	}
+		let popupText;
+		if (data[id]['Intro video YouTube link'] !== '') {
+			popupText = popupText1 + `<iframe class="YTVid" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"  type="text/html" src=${data[id]["Intro video YouTube link"]}></iframe>` + popupText2;
+		} else {
+			popupText = popupText1 + `<img class="popupGraphic" src="${data[id]["Society logo image"]}">` + popupText2;
+		}
+
+		let teamsLink;
+
+		if (data[id]["Teams call address"] === "") {
+			teamsLink = "";
+		} else {
+			teamsLink = `<a href="${data[id]["Teams call address"]}" target="_blank"><center><h2>Join Teams Call</h2></center></a>`;
+		}
 
 	if (data[id]["Society Facebook page address"] == "" && data[id]["Society Instagram profile address"] == "" && data[id]["Society YouTube channel address"] == "") {
 	var social = "";
@@ -118,12 +130,15 @@ $('document').ready(() => {
 	} else if (data[id]["Additional society page address"] == "" && data[id]["Society email signup address"] != "") {
 	var extraLinks = `<center><p class="text"><a href=${data[id]["Society email signup address"]} target="_blank">Email list sign-up form link</a></p></center>`;
 	} else {
-	var extraLinks = `<center><p class="text">Additional related page: <a href=${data[id]["Additional society page address"]} target="_blank">${data[id]["Additional society page address"]}</a></p>
-	<p class="text"><a href=${data[id]["Society email signup address"]} target="_blank">Email list sign-up form link</a></p></center>`
-	}
+		var extraLinks = `<center><p class="text">Additional related page: <a href=${data[id]["Additional society page address"]} target="_blank">${data[id]["Additional society page address"]}</a></p>
+		<p class="text"><a href=${data[id]["Society email signup address"]} target="_blank">Email list sign-up form link</a></p></center>`
+		}
 
-	//popup.innerHTML = popupText + teamsLink + social + websiteAddress + extraLinks;
-	popup.innerHTML = popupText + social + websiteAddress + extraLinks;
+		//popup.innerHTML = popupText + teamsLink + social + websiteAddress + extraLinks;
+		popup.innerHTML = popupText + social + websiteAddress + extraLinks;
+		$('.exit').on('click', () => {
+			hideLightbox();
+		});
 
 		lightbox.classList.add("showLightbox");
 	}

@@ -1,0 +1,83 @@
+Oxford Open Freshers' Fair
+Privacy Notice
+
+Last updated: 21 November 2020
+
+Oxford Open Freshers' Fair is committed to keeping your personal data protected. This privacy notice explains what data we collect, how we process these data, and your rights as someone who has given us data.
+
+Your rights and our obligations are contained within legislation such as the Data Protection Act 2018 and the General Data Protection Regulation ('GDPR'). This privacy notice covers all personal data for which Oxford Open Freshers' Fair is the data controller within the meaning of the GDPR. Oxford Open Freshers' Fair does not act as a data processor for any other data controller.
+
+By using our website or communicating with us, you accept this privacy notice.
+
+We do not collect personal data from visitors to our website.
+
+We may collect personal data from societies/organisations featured on our website, including contact name and email address.
+
+Other data may be collected, such as your computer's IP address, which is stored for a limited amount of time for security purposes.
+
+Who does Oxford Open Freshers' Fair refer to?
+"Oxford Open Freshers' Fair", when used in this notice, refers to the natural person Shelagh Lewins, who also may be referred to using 'we', 'us', 'our', and cognates. Shelagh Lewins is the data controller within the meaning of the GDPR. (Please note that, unless stated otherwise, 'Oxford Open Freshers' Fair' refers on other parts of this website to the site and project, rather than to Shelagh Lewins specifically.)
+
+If you have any queries with respect to our processing of your personal data, you can contact Oxford Open Freshers' Fair by email.
+
+contact@openfreshersfair.online
+
+What does Oxford Open Freshers' Fair do with my contact data?
+We only collect data that we need to contact societies/organisations featured on this website.
+
+(1) If you contact us
+If you send us an email, we will collect your email address, along with the email you send and any personal data within it. Emails will be stored by Dreamhost who are the providers of our email address.
+
+(2) If you sign up to receive updates from us
+If you sign up to receive updates from us, we will collect your email address, along with related data such as the time at which you signed up.
+
+The data in (1) and (3) will be processed under the GDPR's legal basis of Consent. Your contacting us is taken as a 'clear affirmative action [which] signifies agreement to the processing of [your] personal data'.
+
+(3) If we email you
+If you are a student society or relevant organisation that may be interested in what we have to offer, we may find your contact details on the public domain (for example, from the Oxford University Students Union directory of student societies) and email you. In this case, our legal basis for processing your data is legitimate interests and you have the right to object. To let us know that you do not wish to receive further communications, please click the 'Unsubscribe' link or reply to any of our emails expressing a preference not to receive further communications.
+
+What does Oxford Open Freshers' Fair do with my other data?
+When you visit the website, we may use Google Analytics to collect other small pieces of personal data, including your computer's IP address (which tells us location information, among other things). These data are collected only momentarily before being anonymised. Google Analytics is a service offered by Google LLC (1600 Ampitheatre Parkway, Mountain View, CA, USA).
+
+This will mainly be used for security purposes (such as avoiding server attacks), your personal data will be kept securely on the servers of DreamHost (PMB #257, 417 Associated Road, Brea, CA 92821, USA) for a limited time and then deleted. DreamHost is therefore a data processor in the language of the GDPR. DreamHost provides a Data Processing Addendum that limits its processing of your personal data on our behalf to a minimum. The legal basis under GDPR for this processing is Legitimate Interests.
+
+Will my data be shared with anyone?
+We do not sell your data or share it with any other organisation or persons.
+
+Your data may be accessed by certain members of our Oxford Open Freshers' Fair team. This is so that we can contact you, update your society or organisation's entry on the website, and so on. We will not use your personal data for any purposes unrelated to those discussed in this notice, and are firmly committed to your data privacy.
+
+As the operator of our Facebook page, we are joint controllers with Facebook Ireland Ltd (4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Ireland) under the GDPR. We receive from Facebook entirely anonymised statistical information on our Facebook page (‘Facebook Insights’).
+
+What are my data protection rights?
+Under data protection law, you have rights, which include:
+
+Your right of access: you have the right to ask us for copies of your personal information. https://ico.org.uk/your-data-matters/your-right-of-access/
+
+Your right to rectification: you have the right to ask us to rectify information you think is inaccurate. You also have the right to ask us to complete information you think is incomplete. https://ico.org.uk/your-data-matters/your-right-to-get-your-data-corrected/
+
+Your right to erasure: you have the right to ask us to erase your personal information in certain circumstances. https://ico.org.uk/your-data-matters/your-right-to-get-your-data-deleted/
+
+Your right to restriction of processing: you have the right to ask us to restrict the processing of your information in certain circumstances. https://ico.org.uk/your-data-matters/your-right-to-limit-how-organisations-use-your-data/
+
+Your right to object to processing: you have the right to object to the processing of your personal data in certain circumstances. https://ico.org.uk/your-data-matters/the-right-to-object-to-the-use-of-your-data/
+
+Your right to data portability: you have the right to ask that we transfer the information you gave us to another organisation, or to you, in certain circumstances. https://ico.org.uk/your-data-matters/your-right-to-data-portability/
+
+You are not required to pay any charge for exercising your rights. If you make a request, we have one month to respond to you.
+
+Please contact us at contact@oxfordopenfreshers.online if you wish to make a request.
+
+Anything else?
+We will collect anonymised statistical data based on your usage of the site and location. We will not be able to trace this data to you personally.
+
+Your personal data may be backed up to EU-based or UK-based servers or personal computers, but will only be stored in locations to which access is password-protected. If the website permanently ceases to operate, these backups will be deleted.
+
+Your personal data may leave the UK and other European Union countries, most commonly when the services we use (such as Dreamhost mail) transfer your data to non-EU servers. Such transfers will only occur when they are done in a GDPR-compliant manner.
+
+Social media data may be stored by social media platforms and their affiliates in relation to your interaction with our Facebook, Instagram, and Twitter accounts. Compliance in processing is the responsibility of these social media platforms, and you can find out more information by reading their privacy notices. Facebook, Instagram, and Twitter may make use of Cookies; to find out details about their use of Cookies, please consult their Cookie information.
+ 
+In particular, as the operator of our Facebook page, we are joint controllers with Facebook Ireland Ltd under the GDPR. We receive from Facebook entirely anonymised statistical information on our Facebook page ('Facebook Insights').
+ 
+'Facebook Ireland will ensure it has a legal basis for the processing of Insights Data which is set out in Facebook Ireland's Data Policy (see under "What is our legal basis for processing data?"). Unless specified otherwise in this Page Insights Addendum, between you and Facebook Ireland, Facebook Ireland assumes the responsibility for compliance with the applicable obligations under the GDPR for the processing of Insights Data (including, but not limited to, Articles 12 and 13 GDPR, Articles 15 to 21 GDPR, Articles 33 and 34 GDPR). Facebook Ireland will implement appropriate technical and organisational measures to ensure the security of the processing in accordance with Article 32 GDPR.' (Source: https://www.facebook.com/legal/terms/page_controller_addendum, accessed 25 May 2020)
+
+Oxford Open Freshers' Fair reserves the right to modify this privacy notice. If and when this notice is modified, the last updated date and time at the top of this notice will also change to reflect the update. You are responsible for reviewing this notice periodically to ensure that you are aware of any changes to it.

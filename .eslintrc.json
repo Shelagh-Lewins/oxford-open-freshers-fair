@@ -1,0 +1,89 @@
+{
+	"parser": "babel-eslint",
+	"extends": [
+		"airbnb"
+	],
+	"env": {
+		"browser": true
+	},
+	"globals": {
+		
+	},
+	"rules": {
+		"array-callback-return": [
+			"off"
+		],
+		"no-underscore-dangle": [
+			"off"
+		],
+		"import/no-extraneous-dependencies": [
+			"error", {"devDependencies": true}
+		],
+		"eol-last": [
+			"error",
+			"always"
+		],
+		"func-names": [
+			"error",
+			"as-needed"
+		],
+		"quotes": [
+			2,
+			"single",
+			{
+				"avoidEscape": true,
+				"allowTemplateLiterals": true
+			}
+		],
+		"padded-blocks": [
+			"error",
+			"never"
+		],
+		"semi": [
+			"error",
+			"always"
+		],
+		"indent": [
+			"error",
+			"tab",
+			{
+				"SwitchCase": 1
+			}
+		],
+		"key-spacing": [
+			"error",
+			{
+				"mode": "strict"
+			}
+		],
+		"no-alert": [
+			"off"
+		],
+		"object-curly-spacing": [
+			"error",
+			"always"
+		],
+		"quote-props": [
+			2,
+			"always"
+		],
+		"consistent-return": [
+			"off"
+		],
+		"no-return-assign": [
+			"off"
+		],
+		"no-tabs": [
+			"off"
+		],
+		"max-len": [
+			"off"
+		],
+		"jsx-a11y/label-has-associated-control": [
+			1,
+      {
+      	"assert": "either"
+      }
+    ]
+	}
+}

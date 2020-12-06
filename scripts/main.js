@@ -16,27 +16,16 @@ $('document').ready(() => {
 	$(cover).on('click', () => {
 		hideLightbox();
 	});
-	/* $('.exit').on('click', () => {
-		console.log('exit');
-		hideLightbox();
-	}); */
-
-	/* cover.addEventListener('mousedown', function() {
-		hideLightbox();
-	}); */
-	/*exit.addEventListener('mousedown', function() {
-		console.log('exit');
-		hideLightbox();
-	}); */
 
 	const tiles = [];
 
 	function shuffle(array) {
-		var currentIndex = array.length, temporaryValue, randomIndex;
+		let currentIndex = array.length;
+		let temporaryValue;
+		let randomIndex;
 
 		// While there remain elements to shuffle...
-		while (0 !== currentIndex) {
-
+		while (currentIndex !== 0) {
 			// Pick a remaining element...
 			randomIndex = Math.floor(Math.random() * currentIndex);
 			currentIndex -= 1;
@@ -55,92 +44,85 @@ $('document').ready(() => {
 
 	function showPopup(id) {
 		// Split society description into first sentence (to be put in bold) and rest.
-		let socDescLead = data[id]["Society description"].substring(0, data[id]["Society description"].indexOf('.') + 1);
-		let socDescRest = data[id]["Society description"].replace(socDescLead, "");
+		const socDescLead = data[id]['Society description'].substring(0, data[id]['Society description'].indexOf('.') + 1);
+		const socDescRest = data[id]['Society description'].replace(socDescLead, '');
 
 		/*image if desired:         <img src="${data[id]["Society logo image"]}" />*/
 		const popupText1 = `<div class="exit">X</div>
-					<h2 class="subtitle">${data[id]["Society name"]}</h2>`;
+					<h2 class="subtitle">${data[id]['Society name']}</h2>`;
 		const popupText2 = `<p class="text"><b>${socDescLead}</b>${socDescRest}</p>
-					<p class="text"><b>Frequently Asked Questions</b><br />${data[id]["FAQs"]}</p>`;
-		let social1 = `<div id="social" style="flex: 100%; padding: 10px;"><a href=${data[id]["Society Facebook page address"]} target="_blank"><img class="socImg" src="img/social/facebook.png" alt="Facebook link"></a></div>`;
-		let social2 = `<div id="social"><a href=${data[id]["Society Instagram profile address"]} target="_blank"><img class="socImg" src="img/social/instagram.png" alt="Instagram link"></a></div>`;
-		let social3 = `<div id="social"><a href=${data[id]["Society YouTube channel address"]} target="_blank"><img class="socImg" src="img/social/youtube.png" alt="YouTube channel link"></a></div>`;
-		let social4 = `<div id="social">
-			<div class="socLink2"><a href=${data[id]["Society Facebook page address"]} target="_blank"><img class="socImg" src="img/social/facebook.png" alt="Facebook link"></a></div>
-				<div class="socLink2"><a href=${data[id]["Society Instagram profile address"]} target="_blank"><img class="socImg" src="img/social/instagram.png" alt="Instagram link"></a></div>
-				</div>`;
-		let social5 = `<div id="social">
-			<div class="socLink2"><a href=${data[id]["Society Facebook page address"]} target="_blank"><img class="socImg" src="img/social/facebook.png" alt="Facebook link"></a></div>
-				<div class="socLink2"><a href=${data[id]["Society YouTube channel address"]} target="_blank"><img class="socImg" src="img/social/youtube.png" alt="YouTube channel link"></a></div>
-				</div>`;
-		let social6 = `<div id="social">
-				<div class="socLink2"><a href=${data[id]["Society Instagram profile address"]} target="_blank"><img class="socImg" src="img/social/instagram.png" alt="Instagram link"></a></div>
-				<div class="socLink2"><a href=${data[id]["Society YouTube channel address"]} target="_blank"><img class="socImg" src="img/social/youtube.png" alt="YouTube channel link"></a></div>
-				</div>`;
-		let social7 = `<div id="social">
-				<div class="socLink"><a href=${data[id]["Society Facebook page address"]} target="_blank"><img class="socImg" src="img/social/facebook.png" alt="Facebook link"></a></div>
-				<div class="socLink"><a href=${data[id]["Society Instagram profile address"]} target="_blank"><img class="socImg" src="img/social/instagram.png" alt="Instagram link"></a></div>
-				<div class="socLink"><a href=${data[id]["Society YouTube channel address"]} target="_blank"><img class="socImg" src="img/social/youtube.png" alt="YouTube channel link"></a></div>
-				</div>`;
+					<p class="text"><b>Frequently Asked Questions</b><br />${data[id].FAQs}</p>`;
 
 		let popupText;
 		if (data[id]['Intro video YouTube link'] !== '') {
-			popupText = popupText1 + `<iframe class="YTVid" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"  type="text/html" src=${data[id]["Intro video YouTube link"]}></iframe>` + popupText2;
+			popupText = `${popupText1}<iframe class="YTVid" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"  type="text/html" src=${data[id]['Intro video YouTube link']}></iframe>${popupText2}`;
 		} else {
-			popupText = popupText1 + `<img class="popupGraphic" src="${data[id]["Society logo image"]}">` + popupText2;
+			popupText = `${popupText1}<img class="popupGraphic" src="${data[id]['Society logo image']}">${popupText2}`;
 		}
 
-		let teamsLink;
+		let teamsLink = '';
 
-		if (data[id]["Teams call address"] === "") {
-			teamsLink = "";
-		} else {
-			teamsLink = `<a href="${data[id]["Teams call address"]}" target="_blank"><center><h2>Join Teams Call</h2></center></a>`;
+		if (data[id]['Teams call address'] !== '') {
+			teamsLink = `<a href="${data[id]['Teams call address']}" target="_blank" rel="noopener"><center><h2>Join Teams Call</h2></center></a>`;
 		}
 
-	if (data[id]["Society Facebook page address"] == "" && data[id]["Society Instagram profile address"] == "" && data[id]["Society YouTube channel address"] == "") {
-	var social = "";
-	} else if (data[id]["Society Facebook page address"] != "" && data[id]["Society Instagram profile address"] == "" && data[id]["Society YouTube channel address"] == "") {
-	var social = social1;
-	} else if (data[id]["Society Facebook page address"] == "" && data[id]["Society Instagram profile address"] != "" && data[id]["Society YouTube channel address"] == "") {
-	var social = social2;
-	} else if (data[id]["Society Facebook page address"] == "" && data[id]["Society Instagram profile address"] == "" && data[id]["Society YouTube channel address"] != "") {
-	var social = social3;
-	} else if (data[id]["Society Facebook page address"] != "" && data[id]["Society Instagram profile address"] != "" && data[id]["Society YouTube channel address"] == "") {
-	var social = social4;
-	} else if (data[id]["Society Facebook page address"] != "" && data[id]["Society Instagram profile address"] == "" && data[id]["Society YouTube channel address"] != "") {
-	var social = social5;
-	} else if (data[id]["Society Facebook page address"] != "" && data[id]["Society Instagram profile address"] == "" && data[id]["Society YouTube channel address"] == "") {
-	var social = social6;
-	} else {
-	var social = social7;
-	}
+		let social = '';
+		const facebookLink = data[id]['Society Facebook page address'];
+		const instagramLink = data[id]['Society Instagram profile address'];
+		const youtubeLink = data[id]['Society YouTube channel address'];
 
-	if (data[id]["Society website address"] != "") {
-	var websiteAddress = `<center><a href=${data[id]["Society website address"]} target="_blank"><p class="text">Society website link</p></a></center>`
-	} else {
-	var websiteAddress = "";
-	}
+		if (facebookLink || instagramLink || youtubeLink) {
+			social += '<div class="social">';
 
-	if (data[id]["Additional society page address"] == "" && data[id]["Society email signup address"] == ""){
-	var extraLinks = "";
-	} else if (data[id]["Additional society page address"] != "" && data[id]["Society email signup address"] == "") {
-	var extraLinks = `<center><p class="text">Additional related page: <a href=${data[id]["Additional society page address"]} target="_blank">${data[id]["Additional society page address"]}</a></p></center>`;
-	} else if (data[id]["Additional society page address"] == "" && data[id]["Society email signup address"] != "") {
-	var extraLinks = `<center><p class="text"><a href=${data[id]["Society email signup address"]} target="_blank">Email list sign-up form link</a></p></center>`;
-	} else {
-		var extraLinks = `<center><p class="text">Additional related page: <a href=${data[id]["Additional society page address"]} target="_blank">${data[id]["Additional society page address"]}</a></p>
-		<p class="text"><a href=${data[id]["Society email signup address"]} target="_blank">Email list sign-up form link</a></p></center>`
+			if (facebookLink) {
+				social += `<div class="socLink"><a href=${facebookLink} target="_blank" rel="noopener"><img class="socImg" src="img/social/facebook.png" alt="Facebook link"></a></div>`;
+			}
+
+			if (instagramLink) {
+				social += `<div class="socLink"><a href=${instagramLink} target="_blank" rel="noopener"><img class="socImg" src="img/social/instagram.png" alt="Instagram link"></a></div>`;
+			}
+
+			if (youtubeLink) {
+				social += `<div class="socLink"><a href=${youtubeLink} target="_blank" rel="noopener"><img class="socImg" src="img/social/youtube.png" alt="YouTube channel link"></a></div>`;
+			}
+
+			social += '</div>';
 		}
 
-		//popup.innerHTML = popupText + teamsLink + social + websiteAddress + extraLinks;
+		let websiteAddress = '';
+
+		if (data[id]['Society website address'] !== '') {
+			websiteAddress = `<div class="website-address"><a href=${data[id]['Society website address']} target="_blank" rel="noopener"><p class="text">Society website link</p></a></div>`;
+		}
+
+		let extraLinks = '';
+		const additionalPageLink = data[id]['Additional society page address'];
+		// const emailSignupLink = data[id]['Society email signup address']; // temporarily remove as sign up sheets only active at start of year
+
+		if (additionalPageLink) {
+			// if (additionalPageLink || emailSignupLink) { // temporarily remove as sign up sheets only active at start of year
+			extraLinks += '<div class="extra-links">';
+
+			if (additionalPageLink) {
+				extraLinks += `<p class="text">Additional related page: <a href=${additionalPageLink} target="_blank" rel="noopener">${additionalPageLink}</a></p>`;
+			}
+
+			// temporarily remove as sign up sheets only active at start of year
+			/* if (emailSignupLink) {
+				extraLinks += `<p class="text"><a href=${emailSignupLink} target="_blank" rel="noopener">Email list sign-up form link</a></p>`;
+			} */
+
+			extraLinks += '</div>';
+		}
+
+		// temporarily remove teams link as only active in 0th week sessions //
+		// popup.innerHTML = popupText + teamsLink + social + websiteAddress + extraLinks;
 		popup.innerHTML = popupText + social + websiteAddress + extraLinks;
 		$('.exit').on('click', () => {
 			hideLightbox();
 		});
 
-		lightbox.classList.add("showLightbox");
+		lightbox.classList.add('showLightbox');
 	}
 
 	categoriesWrapper.innerHTML = '';

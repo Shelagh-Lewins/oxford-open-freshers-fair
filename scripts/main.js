@@ -138,23 +138,26 @@ $('document').ready(() => {
 	for (let i = 0; i < categories.length; i += 1) {
 		categoriesList.innerHTML += `<li><a href="#${categories[i]}Title" class="link">${categories[i]}</a></li>`;
 	}
-
+console.log('data', data);
 	for (let i = 0; i < data.length; i += 1) {
-		const oneIndexIsForLosers = data[i].ID - 1;
-		let twoIndicesIsForLosers;
+		const {
+			ID,
+			'Society name': societyName,
+			'Society logo image': societyLogoImage,
+		} = data[i];
+		const tileIndex = ID - 1;
 
-		for (let j = 0; j < data.length; j += 1) {
-			if (data[j].ID === data[i].ID) {
-				twoIndicesIsForLosers = j;
-			}
-		}
-		const tile = `<div><span class='tile' title="${data[i]['Society name']}" role='img' aria-label="${data[i]['Society name']}" id='tile${oneIndexIsForLosers}' style='background-size: 100% 100%; background-image: url("${
-			data[i]['Society logo image']}'
-			><div class='tileInner'
-			data-index=${twoIndicesIsForLosers}>
-		</div></div></span>`;
+		const tile = `<div class="tileOuter"><span class='tile' title="${societyName}" role='img' aria-label="${societyName}" id='tile${tileIndex}' style='background-size: 100% 100%; background-image: url("${societyLogoImage}'>
+		<div class='tileInner' data-index=${i}></div>
+		</span>
+		<div class="tileName">${societyName}</div></div>`;
+		// const tile = `<div><span class='tile' title="${data[i]['Society name']}" role='img' aria-label="${data[i]['Society name']}" id='tile${oneIndexIsForLosers}' style='background-size: 100% 100%; background-image: url("${
+			//data[i]['Society logo image']}'
+			//><div class='tileInner'
+			//data-index=${twoIndicesIsForLosers}>
+		//</div></div></span>`;
 		document.getElementById(`${data[i].Category}Grid`).innerHTML += tile;
-		tiles.push(document.getElementById(`tile${oneIndexIsForLosers}`));
+		tiles.push(document.getElementById(`tile${tileIndex}`));
 	}
 
 	$('.tile').on('click', (event) => {

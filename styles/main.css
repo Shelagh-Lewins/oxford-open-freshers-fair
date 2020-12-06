@@ -65,8 +65,12 @@ p {
   justify-content: center;
 }
 
-.tile {
+.tileOuter {
   width: 250px;
+}
+
+.tile {
+  width: 100%px;
   height: 250px;
   background-color: #aaa;
   margin: 0.5em;
@@ -90,6 +94,10 @@ p {
   color: #fff;
   text-shadow: 0 0 3px #000, 0 0 6px #000, 0 0 10px #000;
   margin: 0;
+}
+
+.tileName {
+  width: 100%;
 }
 
 .tile:hover {

@@ -100,7 +100,7 @@ p {
 }
 
 .tile-name {
-  width: 100%;
+  padding: 0 4px;
 }
 
 .tile:hover {
@@ -110,13 +110,11 @@ p {
 /* Hero details */
 
 .hero {
-  max-width: 100%;
-  max-height: 50%;
   background-image: url("../img/BigLogo.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
-  margin-bottom: 3em;
+  margin: 0.5em 0.5em 2em 0.5em;
 }
 
 .hero-overlay img {
@@ -231,8 +229,8 @@ height: 60%;
   justify-content: space-around;
 }
 
-.socLink {
-padding: 10px;
+.social .link-wrapper {
+  padding: 10px;
 }
 
 .socImg {

@@ -43,81 +43,93 @@ $('document').ready(() => {
 	const categories = shuffle(unshuffledCategories);
 
 	function showPopup(id) {
+		const {
+			'Additional society page address': additionalPageAddress,
+			FAQs,
+			'Intro video YouTube link': introVideoAddress,
+			'Society description': description,
+			// 'Society email signup address': emailSignupAddress, // temporarily disabled as only active at start of year
+			'Society Facebook page address': facebookAddress,
+			'Society Instagram profile address': instagramAddress,
+			'Society logo image': logoImage,
+			'Society name': name,
+			'Society YouTube channel address': youtubeChannelAddress,
+			'Society website address': websiteAddress,
+			// 'Teams call address': teamsCallAddress, // temporarily disabled as only active in live sessions
+
+		} = data[id];
 		// Split society description into first sentence (to be put in bold) and rest.
-		const socDescLead = data[id]['Society description'].substring(0, data[id]['Society description'].indexOf('.') + 1);
-		const socDescRest = data[id]['Society description'].replace(socDescLead, '');
+		const socDescLead = description.substring(0, description.indexOf('.') + 1);
+		const socDescRest = description.replace(socDescLead, '');
 
-		/*image if desired:         <img src="${data[id]["Society logo image"]}" />*/
 		const popupText1 = `<div class="exit">X</div>
-					<h2 class="subtitle">${data[id]['Society name']}</h2>`;
+					<h2 class="subtitle">${name}</h2>`;
 		const popupText2 = `<p class="text"><b>${socDescLead}</b>${socDescRest}</p>
-					<p class="text"><b>Frequently Asked Questions</b><br />${data[id].FAQs}</p>`;
+					<p class="text"><b>Frequently Asked Questions</b><br />${FAQs}</p>`;
 
+		// show video intro if available
+		// otherwise society logo
 		let popupText;
-		if (data[id]['Intro video YouTube link'] !== '') {
-			popupText = `${popupText1}<iframe class="YTVid" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"  type="text/html" src=${data[id]['Intro video YouTube link']}></iframe>${popupText2}`;
+		if (introVideoAddress !== '') {
+			popupText = `${popupText1}<iframe class="YTVid" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"  type="text/html" src=${introVideoAddress}></iframe>${popupText2}`;
 		} else {
-			popupText = `${popupText1}<img class="popupGraphic" src="${data[id]['Society logo image']}">${popupText2}`;
+			popupText = `${popupText1}<img class="popupGraphic" src="${logoImage}">${popupText2}`;
 		}
 
-		let teamsLink = '';
+		// temporarily disabled as only active in live sessions
+		/* let teamsLink = '';
 
-		if (data[id]['Teams call address'] !== '') {
-			teamsLink = `<a href="${data[id]['Teams call address']}" target="_blank" rel="noopener"><center><h2>Join Teams Call</h2></center></a>`;
-		}
+		if (teamsCallAddress !== '') {
+			teamsLink = `<a href="${teamsCallAddress}" target="_blank" rel="noopener"><center><h2>Join Teams Call</h2></center></a>`;
+		} */
 
 		let social = '';
-		const facebookLink = data[id]['Society Facebook page address'];
-		const instagramLink = data[id]['Society Instagram profile address'];
-		const youtubeLink = data[id]['Society YouTube channel address'];
 
-		if (facebookLink || instagramLink || youtubeLink) {
+		if (facebookAddress || instagramAddress || youtubeChannelAddress) {
 			social += '<div class="social">';
 
-			if (facebookLink) {
-				social += `<div class="socLink"><a href=${facebookLink} target="_blank" rel="noopener"><img class="socImg" src="img/social/facebook.png" alt="Facebook link"></a></div>`;
+			if (facebookAddress) {
+				social += `<div class="link-wrapper"><a href=${facebookAddress} target="_blank" rel="noopener"><img class="socImg" src="img/social/facebook.png" alt="Facebook link"></a></div>`;
 			}
 
-			if (instagramLink) {
-				social += `<div class="socLink"><a href=${instagramLink} target="_blank" rel="noopener"><img class="socImg" src="img/social/instagram.png" alt="Instagram link"></a></div>`;
+			if (instagramAddress) {
+				social += `<div class="link-wrapper"><a href=${instagramAddress} target="_blank" rel="noopener"><img class="socImg" src="img/social/instagram.png" alt="Instagram link"></a></div>`;
 			}
 
-			if (youtubeLink) {
-				social += `<div class="socLink"><a href=${youtubeLink} target="_blank" rel="noopener"><img class="socImg" src="img/social/youtube.png" alt="YouTube channel link"></a></div>`;
+			if (youtubeChannelAddress) {
+				social += `<div class="link-wrapper"><a href=${youtubeChannelAddress} target="_blank" rel="noopener"><img class="socImg" src="img/social/youtube.png" alt="YouTube channel link"></a></div>`;
 			}
 
 			social += '</div>';
 		}
 
-		let websiteAddress = '';
+		let websiteLink = '';
 
-		if (data[id]['Society website address'] !== '') {
-			websiteAddress = `<div class="website-address"><a href=${data[id]['Society website address']} target="_blank" rel="noopener"><p class="text">Society website link</p></a></div>`;
+		if (websiteAddress !== '') {
+			websiteLink = `<div class="website-address"><a href=${websiteAddress} target="_blank" rel="noopener"><p class="text">Society website link</p></a></div>`;
 		}
 
 		let extraLinks = '';
-		const additionalPageLink = data[id]['Additional society page address'];
-		// const emailSignupLink = data[id]['Society email signup address']; // temporarily remove as sign up sheets only active at start of year
 
-		if (additionalPageLink) {
-			// if (additionalPageLink || emailSignupLink) { // temporarily remove as sign up sheets only active at start of year
+		if (additionalPageAddress) {
+			// if (additionalPageLink || emailSignupLink) { // temporarily disabled as sign up sheets only active at start of year
 			extraLinks += '<div class="extra-links">';
 
-			if (additionalPageLink) {
-				extraLinks += `<p class="text">Additional related page: <a href=${additionalPageLink} target="_blank" rel="noopener">${additionalPageLink}</a></p>`;
+			if (additionalPageAddress) {
+				extraLinks += `<p class="text">Additional related page: <a href=${additionalPageAddress} target="_blank" rel="noopener">${additionalPageAddress}</a></p>`;
 			}
 
-			// temporarily remove as sign up sheets only active at start of year
-			/* if (emailSignupLink) {
-				extraLinks += `<p class="text"><a href=${emailSignupLink} target="_blank" rel="noopener">Email list sign-up form link</a></p>`;
+			// temporarily disabled as sign up sheets only active at start of year
+			/* if (emailSignupAddress) {
+				extraLinks += `<p class="text"><a href=${emailSignupAddress} target="_blank" rel="noopener">Email list sign-up form link</a></p>`;
 			} */
 
 			extraLinks += '</div>';
 		}
 
-		// temporarily remove teams link as only active in 0th week sessions //
-		// popup.innerHTML = popupText + teamsLink + social + websiteAddress + extraLinks;
-		popup.innerHTML = popupText + social + websiteAddress + extraLinks;
+		// temporarily disabled as only active in live sessions //
+		// popup.innerHTML = popupText + teamsLink + social + websiteLink + extraLinks;
+		popup.innerHTML = popupText + social + websiteLink + extraLinks;
 		$('.exit').on('click', () => {
 			hideLightbox();
 		});
@@ -142,8 +154,9 @@ $('document').ready(() => {
 	for (let i = 0; i < data.length; i += 1) {
 		const {
 			ID,
-			'Society name': societyName,
 			'Society logo image': societyLogoImage,
+			'Society name': societyName,
+
 		} = data[i];
 		const tileIndex = ID - 1;
 
@@ -151,11 +164,7 @@ $('document').ready(() => {
 		<div class='tile-inner' data-index=${i}></div>
 		</span>
 		<div class="tile-name">${societyName}</div></div>`;
-		// const tile = `<div><span class='tile' title="${data[i]['Society name']}" role='img' aria-label="${data[i]['Society name']}" id='tile${oneIndexIsForLosers}' style='background-size: 100% 100%; background-image: url("${
-			//data[i]['Society logo image']}'
-			//><div class='tileInner'
-			//data-index=${twoIndicesIsForLosers}>
-		//</div></div></span>`;
+
 		document.getElementById(`${data[i].Category}Grid`).innerHTML += tile;
 		tiles.push(document.getElementById(`tile${tileIndex}`));
 	}

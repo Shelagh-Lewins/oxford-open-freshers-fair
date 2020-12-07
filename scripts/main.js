@@ -138,7 +138,7 @@ $('document').ready(() => {
 	for (let i = 0; i < categories.length; i += 1) {
 		categoriesList.innerHTML += `<li><a href="#${categories[i]}Title" class="link">${categories[i]}</a></li>`;
 	}
-console.log('data', data);
+
 	for (let i = 0; i < data.length; i += 1) {
 		const {
 			ID,
@@ -147,10 +147,10 @@ console.log('data', data);
 		} = data[i];
 		const tileIndex = ID - 1;
 
-		const tile = `<div class="tileOuter"><span class='tile' title="${societyName}" role='img' aria-label="${societyName}" id='tile${tileIndex}' style='background-size: 100% 100%; background-image: url("${societyLogoImage}'>
-		<div class='tileInner' data-index=${i}></div>
+		const tile = `<div class="tile"><span class='tile-logo' title="${societyName}" role='img' aria-label="${societyName}" id='tile${tileIndex}' style='background-size: 100% 100%; background-image: url("${societyLogoImage}'>
+		<div class='tile-inner' data-index=${i}></div>
 		</span>
-		<div class="tileName">${societyName}</div></div>`;
+		<div class="tile-name">${societyName}</div></div>`;
 		// const tile = `<div><span class='tile' title="${data[i]['Society name']}" role='img' aria-label="${data[i]['Society name']}" id='tile${oneIndexIsForLosers}' style='background-size: 100% 100%; background-image: url("${
 			//data[i]['Society logo image']}'
 			//><div class='tileInner'

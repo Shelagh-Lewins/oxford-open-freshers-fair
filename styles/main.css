@@ -158,14 +158,13 @@ p {
 }
 
 .exit {
-  float: right;
-  display: block;
-  cursor: pointer;
-  padding-right: 1em;
-  padding-top: 1em;
-  font-size: 1.5em;
   color: #ccc;
-  text-shadow: 0 0 10px #000;
+  cursor: pointer;
+  display: block;
+  float: right;
+  font-size: 1.5em;
+  margin: 0.75em;
+  padding: 0.25em;
 }
 
 .popup {
@@ -186,10 +185,11 @@ p {
 }
 
 .popupGraphic {
-display: block;
-margin-left: auto;
-margin-right: auto;
-width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 200px;
+  width: 50%;
 }
 
 /* Media Queries (mobile-first) */

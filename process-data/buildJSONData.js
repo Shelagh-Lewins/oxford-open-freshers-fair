@@ -3,7 +3,7 @@
 // categories.json
 // society_data.json
 
-// most society data is loaded from society_data.csv
+// general society data is loaded from society_data.csv
 // description, FAQs are loaded from individual text files
 // list of categories is loaded from categories.csv
 

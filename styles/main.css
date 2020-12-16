@@ -31,7 +31,7 @@ a {
 
 p {
   margin: 1em;
-  font-size: 1.25em;
+  overflow-wrap: break-word;
 }
 
 .subtitle {
@@ -70,17 +70,19 @@ p {
   border-radius: 0.5em;
   color: #fff;
   margin: 0.5em;
-  overflow: hidden;;
+  overflow: hidden;
+  cursor: pointer;
   width: 250px; 
 }
 
 .tile-logo {
-  width: 250px;
-  height: 250px;
   background-color: #aaa;
-  display: flex;
-  transition: box-shadow 0.2s;
   background-size: cover;
+  display: flex;
+  height: 250px;
+  pointer-events: none;
+  transition: box-shadow 0.2s;
+  width: 250px;
 }
 
 .tile-inner {
@@ -91,7 +93,7 @@ p {
   width: 100%;
   height: 100%;
   padding: 0 0.3em;
-  
+  pointer-events: none;
   font-size: 1em;
   font-weight: bold;
   color: #fff;
@@ -101,6 +103,7 @@ p {
 
 .tile-name {
   padding: 0 4px;
+  pointer-events: none;
 }
 
 .tile:hover {
@@ -161,26 +164,34 @@ p {
   color: #ccc;
   cursor: pointer;
   display: block;
-  float: right;
   font-size: 1.5em;
   margin: 0.75em;
   padding: 0.25em;
+  position: absolute;
+  right: 0;
 }
 
 .popup {
-  position: fixed;
   background-color: #fff;
-  max-width: 95%;
-  height: 95vh;
   border-radius: 10px;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  height: 95vh;
   margin: 1em;
+  max-width: 95%;
+  overflow: hidden;
+  position: fixed;
   z-index: 1;
+}
+
+.popupMain {
+  min-height: 0;
+  overflow-y: auto;
 }
 
 .popup .subtitle {
   border-radius: 0;
-  padding: 1em;
+  padding: 1em 2em 1em 1em;
   margin-top: 0;
 }
 

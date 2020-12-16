@@ -35,60 +35,61 @@ function shuffle(array) {
 
 function showPopup(id) {
 	const {
-		'Additional society page address': additionalPageAddress,
+		additionalPageURL,
 		FAQs,
-		'Intro video YouTube link': introVideoAddress,
-		'Society description': description,
-		// 'Society email signup address': emailSignupAddress, // temporarily disabled as only active at start of year
-		'Society Facebook page address': facebookAddress,
-		'Society Instagram profile address': instagramAddress,
-		'Society logo image': logoImage,
-		'Society name': name,
-		'Society YouTube channel address': youtubeChannelAddress,
-		'Society website address': websiteAddress,
-		// 'Teams call address': teamsCallAddress, // temporarily disabled as only active in live sessions
-
+		introVideoURL,
+		description,
+		// emailSignupAddress, // temporarily disabled as only active at start of year
+		facebookURL,
+		instagramURL,
+		logoFilename,
+		name,
+		youtubeChannelURL,
+		websiteURL,
+		// teamsCallURL, // temporarily disabled as only active in live sessions
 	} = societyData[id];
+
 	// Split society description into first sentence (to be put in bold) and rest.
 	const socDescLead = description.substring(0, description.indexOf('.') + 1);
 	const socDescRest = description.replace(socDescLead, '');
 
-	const popupText1 = `<div class="exit">X</div>
-				<h2 class="subtitle">${name}</h2>`;
-	const popupText2 = `<p class="text"><b>${socDescLead}</b>${socDescRest}</p>
-				<p class="text"><b>Frequently Asked Questions</b><br />${FAQs}</p>`;
+	// popup header and exit button
+	let popupText = `<div class="exit">X</div><h2 class="subtitle">${name}</h2>`;
+
+	const popupIntro = `<p class="text"><b>${socDescLead}</b>${socDescRest}</p><p class="text"><b>Frequently Asked Questions</b><br />${FAQs}</p>`;
+
+	popupText += '<div class="popupMain">'; // open wrapper div for scroll
 
 	// show video intro if available
 	// otherwise society logo
-	let popupText;
-	if (introVideoAddress !== '') {
-		popupText = `${popupText1}<iframe class="YTVid" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"  type="text/html" src=${introVideoAddress}></iframe>${popupText2}`;
+	if (introVideoURL !== '') {
+		popupText += `<iframe class="YTVid" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"  type="text/html" src=${introVideoURL}></iframe>${popupIntro}`;
 	} else {
-		popupText = `${popupText1}<img class="popupGraphic" src="${logoImage}">${popupText2}`;
+		popupText += `<img class="popupGraphic" src="${logoFilename}">${popupIntro}`;
 	}
 
 	// temporarily disabled as only active in live sessions
 	/* let teamsLink = '';
 
-	if (teamsCallAddress !== '') {
-		teamsLink = `<a href="${teamsCallAddress}" target="_blank" rel="noopener"><center><h2>Join Teams Call</h2></center></a>`;
+	if (teamsCallURL !== '') {
+		teamsLink = `<a href="${teamsCallURL}" target="_blank" rel="noopener"><center><h2>Join Teams Call</h2></center></a>`;
 	} */
 
 	let social = '';
 
-	if (facebookAddress || instagramAddress || youtubeChannelAddress) {
+	if (facebookURL || instagramURL || youtubeChannelURL) {
 		social += '<div class="social">';
 
-		if (facebookAddress) {
-			social += `<div class="link-wrapper"><a href=${facebookAddress} target="_blank" rel="noopener"><img class="socImg" src="img/social/facebook.png" alt="Facebook link"></a></div>`;
+		if (facebookURL) {
+			social += `<div class="link-wrapper"><a href=${facebookURL} target="_blank" rel="noopener"><img class="socImg" src="img/social/facebook.png" alt="Facebook link" title="Facebook"></a></div>`;
 		}
 
-		if (instagramAddress) {
-			social += `<div class="link-wrapper"><a href=${instagramAddress} target="_blank" rel="noopener"><img class="socImg" src="img/social/instagram.png" alt="Instagram link"></a></div>`;
+		if (instagramURL) {
+			social += `<div class="link-wrapper"><a href=${instagramURL} target="_blank" rel="noopener"><img class="socImg" src="img/social/instagram.png" alt="Instagram link" title="Instagram"></a></div>`;
 		}
 
-		if (youtubeChannelAddress) {
-			social += `<div class="link-wrapper"><a href=${youtubeChannelAddress} target="_blank" rel="noopener"><img class="socImg" src="img/social/youtube.png" alt="YouTube channel link"></a></div>`;
+		if (youtubeChannelURL) {
+			social += `<div class="link-wrapper"><a href=${youtubeChannelURL} target="_blank" rel="noopener"><img class="socImg" src="img/social/youtube.png" alt="YouTube channel link" title="YouTube channel"></a></div>`;
 		}
 
 		social += '</div>';
@@ -96,18 +97,18 @@ function showPopup(id) {
 
 	let websiteLink = '';
 
-	if (websiteAddress !== '') {
-		websiteLink = `<div class="website-address"><a href=${websiteAddress} target="_blank" rel="noopener"><p class="text">Society website link</p></a></div>`;
+	if (websiteURL !== '') {
+		websiteLink = `<div class="website-address"><a href=${websiteURL} target="_blank" rel="noopener"><p class="text">Society website link</p></a></div>`;
 	}
 
 	let extraLinks = '';
 
-	if (additionalPageAddress) {
+	if (additionalPageURL) {
 		// if (additionalPageLink || emailSignupLink) { // temporarily disabled as sign up sheets only active at start of year
 		extraLinks += '<div class="extra-links">';
 
-		if (additionalPageAddress) {
-			extraLinks += `<p class="text">Additional related page: <a href=${additionalPageAddress} target="_blank" rel="noopener">${additionalPageAddress}</a></p>`;
+		if (additionalPageURL) {
+			extraLinks += `<p class="text">Additional related page: <a href=${additionalPageURL} target="_blank" rel="noopener">${additionalPageURL}</a></p>`;
 		}
 
 		// temporarily disabled as sign up sheets only active at start of year
@@ -121,6 +122,8 @@ function showPopup(id) {
 	// temporarily disabled as only active in live sessions //
 	// popup.innerHTML = popupText + teamsLink + social + websiteLink + extraLinks;
 	popup.innerHTML = popupText + social + websiteLink + extraLinks;
+	popupText += '</div>'; // close the wrapper div
+
 	$('.exit').on('click', () => {
 		hideLightbox();
 	});
@@ -160,18 +163,17 @@ function setupPage() {
 	for (let i = 0; i < societyData.length; i += 1) {
 		const {
 			ID,
-			'Society logo image': societyLogoImage,
-			'Society name': societyName,
-
+			logoFilename,
+			name,
 		} = societyData[i];
 		const tileIndex = ID - 1;
 
-		const tile = `<div class="tile"><span class='tile-logo' title="${societyName}" role='img' aria-label="${societyName}" id='tile${tileIndex}' style='background-size: 100% 100%; background-image: url("${societyLogoImage}'>
-		<div class='tile-inner' data-index=${i}></div>
+		const tile = `<div class="tile" data-index=${i}><span class='tile-logo' title="${name}" role='img' aria-label="${name}" id='tile${tileIndex}' style='background-size: 100% 100%; background-image: url("${logoFilename}'>
+		<div class='tile-inner'></div>
 		</span>
-		<div class="tile-name">${societyName}</div></div>`;
+		<div class="tile-name">${name}</div></div>`;
 
-		document.getElementById(`${societyData[i].Category}Grid`).innerHTML += tile;
+		document.getElementById(`${societyData[i].category}Grid`).innerHTML += tile;
 		tiles.push(document.getElementById(`tile${tileIndex}`));
 	}
 

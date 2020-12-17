@@ -111,6 +111,9 @@ p {
 }
 
 /* Hero details */
+.hero-wrapper {
+  margin: 2.5%;
+}
 
 .hero {
   background-image: url("../img/BigLogo.png");

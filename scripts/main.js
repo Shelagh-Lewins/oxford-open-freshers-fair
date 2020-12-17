@@ -98,7 +98,7 @@ function showPopup(id) {
 	let websiteLink = '';
 
 	if (websiteURL !== '') {
-		websiteLink = `<div class="website-address"><a href=${websiteURL} target="_blank" rel="noopener"><p class="text">Society website link</p></a></div>`;
+		websiteLink = `<div class="website-address"><a href=${websiteURL} target="_blank" rel="noopener"><p class="text">Society website</p></a></div>`;
 	}
 
 	let extraLinks = '';

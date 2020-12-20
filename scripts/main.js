@@ -186,10 +186,18 @@ function setupPage() {
 // wait until the page is loaded
 $('document').ready(() => {
 	// load society data from JSON file
-	$.getJSON('/oxfordopenfreshers/data/society_data.json', (data) => {
+	let pathroot = '';
+
+	if (window.location.hostname === 'localhost') {
+		pathroot = '/oxfordopenfreshers';
+	}
+
+	pathroot += '/data/';
+	$.getJSON(`${pathroot}society_data.json`, (data) => {
 		unshuffledSocietyData = data;
+
 		// load category data from JSON file
-		$.getJSON('/oxfordopenfreshers/data/categories.json', (data1) => {
+		$.getJSON(`${pathroot}categories.json`, (data1) => {
 			unshuffledCategories = data1;
 
 			setupPage();

@@ -7,6 +7,49 @@
 // description, FAQs are loaded from individual text files
 // list of categories is loaded from categories.csv
 
+/*
+# Data update process #
+
+## Add a new society ##
+1. Add the new society to the society_data.xls spreadsheet and assign it a unique ID
+
+2. Copy the logo file into img/logos/, getting the ID from the spreadsheet.
+
+3. Make sure the description, faq files exist with the correct name.
+
+Open a command line prompt:
+
+cd /var/www/html/oxfordopenfreshers/process-data
+
+node ensureFilesExist.js
+
+4. Paste the description, faq for the new society into the relevant files in /process-data/description/ and /process-data/faq/
+
+## Rebuild the data ##
+1. Open society_data.xls and save the society_data worksheet as society_data.csv. Copy it into:
+
+/var/www/html/oxfordopenfreshers/process-data
+
+2. If there is a new category, save the categories worksheet as categories.csv and copy it into:
+
+/var/www/html/oxfordopenfreshers/process-data
+
+3. Generate new JSON data
+
+Open a command line prompt:
+
+cd /var/www/html/oxfordopenfreshers/process-data
+
+node buildJSONData.js
+
+This takes in the csv data, description files and faq files.
+
+4. Copy the output files into /data:
+
+society_data.json
+categories.json
+*/
+
 const {
 	loadText,
 	sanitizeFilename,

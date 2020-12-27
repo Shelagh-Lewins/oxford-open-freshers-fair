@@ -1,7 +1,0 @@
-Q: Why does OxWoCS exist?
-A: OxWoCS was founded in 2013 by a group of DPhil students and PostDocs with the aim of supporting and promoting the women in the department, and empowering them to make an impact on computer science. OxWoCS also aims to make the departmental culture more open, accepting and welcoming to all members of the department. Due to various cultural stereotypes, many young women today don't see computer science as an attractive career option. Women are significantly underrepresented in the Computer Science department's across the world, both at the student and the faculty level. The Oxford Department of Computer Science is no exception to these statistics, with women being underrepresented at every level
-Q: What does OxWoCS do?
-A: OxWoCS runs a variety of events throughout the year, including the Distinguished Speaker Seminar Series, social events, industry events, and the Oxbridge Women in Computer Science Conference. We also advertise other events relevant to women in computer science and collect information about sponsorship opportunities and other women in computer science societies.
-
-Q: Who can join?
-A: All members of the department can get involved with OxWoCS, no matter their gender. Society events are usually open to everyone, though some events co-organised with our sponsors may come with restrictions which will be clearly explained in the event description. We also welcome people who are not members of the Oxford Department of Computer Science but share our interests.

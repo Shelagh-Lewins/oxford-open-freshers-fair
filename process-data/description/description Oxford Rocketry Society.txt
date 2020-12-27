@@ -1,1 +1,0 @@
-We design, build and launch rockets. We are currently working on a hybrid rocket engine and an automated vectored thrust rocket.

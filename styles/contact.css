@@ -6,3 +6,10 @@
 .logo img {
 	width: 100%;
 }
+
+.facebook-link {
+	background-image: url("../img/social/facebook.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	padding-left: 32px;
+}

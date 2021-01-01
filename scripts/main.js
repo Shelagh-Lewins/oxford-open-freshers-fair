@@ -168,7 +168,7 @@ function setupPage() {
 		} = societyData[i];
 		const tileIndex = ID - 1;
 
-		const tile = `<div class="tile" data-index=${i}><span class='tile-logo' title="${name}" role='img' aria-label="${name}" id='tile${tileIndex}' style='background-size: 100% 100%; background-image: url("${logoFilename}'>
+		const tile = `<div class="tile" data-index=${i}><span class='tile-logo' title="${name}" role='img' aria-label="${name}" id='tile${tileIndex}' style='background-size: 100% 100%; background-image: url("${logoFilename}")'>
 		<div class='tile-inner'></div>
 		</span>
 		<div class="tile-name">${name}</div></div>`;

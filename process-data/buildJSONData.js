@@ -37,13 +37,19 @@ node ensureFilesExist.js
 3. Rebuild the data.
 
 ## Rebuild the data ##
-1. If there are changes to society_data.xls, open it and save the society_data worksheet as society_data.csv. Copy it into:
+1. If there are changes to society_data.xls, open it and save the society_data worksheet as society_data.csv.
+
+** choose "file > save a copy" not "save" when outputting csv **
+
+Copy it into:
 
 /var/www/html/oxfordopenfreshers/process-data
 
 2. If there is a new category, save the categories worksheet as categories.csv and copy it into:
 
 /var/www/html/oxfordopenfreshers/process-data
+
+** choose "file > save a copy" not "save" when outputting csv **
 
 3. Generate new JSON data
 

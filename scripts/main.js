@@ -41,8 +41,9 @@ function showPopup(id) {
 		description,
 		// emailSignupAddress, // temporarily disabled as only active at start of year
 		facebookURL,
+		ID,
 		instagramURL,
-		logoFilename,
+		logoFileExtension,
 		name,
 		youtubeChannelURL,
 		websiteURL,
@@ -65,7 +66,7 @@ function showPopup(id) {
 	if (introVideoURL !== '') {
 		popupText += `<iframe class="YTVid" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"  type="text/html" src=${introVideoURL}></iframe>${popupIntro}`;
 	} else {
-		popupText += `<img class="popupGraphic" src="${logoFilename}">${popupIntro}`;
+		popupText += `<img class="popupGraphic" src="img/logos/${ID}.${logoFileExtension}">${popupIntro}`;
 	}
 
 	// temporarily disabled as only active in live sessions
@@ -163,12 +164,12 @@ function setupPage() {
 	for (let i = 0; i < societyData.length; i += 1) {
 		const {
 			ID,
-			logoFilename,
+			logoFileExtension,
 			name,
 		} = societyData[i];
 		const tileIndex = ID - 1;
 
-		const tile = `<div class="tile" data-index=${i}><span class='tile-logo' title="${name}" role='img' aria-label="${name}" id='tile${tileIndex}' style='background-size: 100% 100%; background-image: url("${logoFilename}")'>
+		const tile = `<div class="tile" data-index=${i}><span class='tile-logo' title="${name}" role='img' aria-label="${name}" id='tile${tileIndex}' style='background-image: url("img/logos/${ID}.${logoFileExtension}")'>
 		<div class='tile-inner'></div>
 		</span>
 		<div class="tile-name">${name}</div></div>`;
